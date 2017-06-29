@@ -1,14 +1,16 @@
 import { expect, should } from 'chai';
+import { stub, restore } from 'sinon';
 import 'mocha';
 
 import { Temperature } from '../src/Temperature/Temperature';
 import { TemperatureNegativeException } from '../src/Temperature/TemperatureNegativeException';
-import { TemperatureTestClass } from '../src/Temperature/TemperatureTestClass';
+import { TemperatureTestClass } from './TemperatureTestClass';
+import { ColdThresholdSource } from '../src/Temperature/ColdThresholdSource';
 
 should();
 
 describe('Temperature class', () => {
-  it('should return an object with measure', () => {
+  it('should return a valid temperature with named constructor', () => {
     const measure = 1;
     const result: Temperature = TemperatureTestClass.take(measure);
     result.getMeasure().should.be.equals(measure);
@@ -28,5 +30,14 @@ describe('Temperature class', () => {
     const measure = 60;
     const result: Temperature = TemperatureTestClass.take(measure);
     result.isSuperHot().should.be.equals(true);
+  });
+
+  it('should return a super-cold temperature', () => {
+    const coldThresholdSource = new ColdThresholdSource();
+    stub(coldThresholdSource, 'getThreshold').returns(5);
+    const measure = 4;
+    const result: Temperature = TemperatureTestClass.take(measure);
+    result.isSuperCold(coldThresholdSource).should.be.equals(true);
+    restore(coldThresholdSource.getThreshold);
   });
 });

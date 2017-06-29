@@ -9,12 +9,12 @@ should();
 describe('Temperature class', () => {
   it('should return an object with measure', () => {
     const measure = 1;
-    const result: Temperature = new Temperature(measure);
+    const result: Temperature = Temperature.take(measure);
     result.getMeasure().should.be.equals(measure);
   });
 
   it('should return an TemperatureNegativeException', () => {
-    expect(() => new Temperature(-1)).to.throw(TemperatureNegativeException, 'Measure should be positive');
+    expect(() => Temperature.take(-1)).to.throw(TemperatureNegativeException, 'Measure should be positive');
   });
 
   it('should create a valid temperature with named constructor', () => {

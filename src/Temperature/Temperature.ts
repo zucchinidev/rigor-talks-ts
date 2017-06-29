@@ -1,7 +1,7 @@
 import {TemperatureNegativeException} from './TemperatureNegativeException';
 
 export class Temperature {
-  constructor(private measure: number) {
+  private constructor(private measure: number) {
     this.setMeasure(measure);
   }
 

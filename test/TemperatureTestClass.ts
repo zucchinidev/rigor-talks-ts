@@ -1,4 +1,4 @@
-import { Temperature } from './Temperature';
+import { Temperature } from '../src/Temperature/Temperature';
 
 export class TemperatureTestClass extends Temperature {
 

@@ -1,3 +1,9 @@
-/**
- * Created by azucgar on 29/06/17.
- */
+interface Threshold {
+  getThreshold (): number;
+}
+
+export class ColdThresholdSource implements Threshold {
+  getThreshold (): number {
+    return -10;
+  }
+}

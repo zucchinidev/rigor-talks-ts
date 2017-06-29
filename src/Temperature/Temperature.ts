@@ -1,4 +1,5 @@
 import { TemperatureNegativeException } from './TemperatureNegativeException';
+import { ColdThresholdSource } from './ColdThresholdSource';
 
 export class Temperature {
   constructor (private measure: number) {
@@ -12,6 +13,11 @@ export class Temperature {
   isSuperHot (): boolean {
     const threshold = this.getThreshold();
     return this.getMeasure() > threshold;
+  }
+
+  isSuperCold (coldThresholdSource: ColdThresholdSource) {
+    const threshold = coldThresholdSource.getThreshold();
+    return this.getMeasure() <= threshold;
   }
 
   // TODO delete infrastructure detail, mock this in test with TestClass

@@ -14,7 +14,7 @@ describe('Temperature class', () => {
   });
 
   it('should return an TemperatureNegativeException', () => {
-    expect(() => Temperature.take(-1)).to.throw(TemperatureNegativeException, 'Measure should be positive');
+    expect(() => Temperature.take(-1)).to.throw(TemperatureNegativeException, 'Measure -1 must be positive');
   });
 
   it('should create a valid temperature with named constructor', () => {

@@ -10,13 +10,13 @@ export class Temperature {
   }
 
   private setMeasure(measure: number) {
-    this.checkMeasureIsPositive();
+    Temperature.checkMeasureIsPositive(measure);
     this.measure = measure;
   }
 
-  private checkMeasureIsPositive() {
-    if (this.measure < 0) {
-      throw new TemperatureNegativeException('Measure should be positive');
+  private static checkMeasureIsPositive(measure: number) {
+    if (measure < 0) {
+      throw TemperatureNegativeException.fromMeasure(measure);
     }
   }
 

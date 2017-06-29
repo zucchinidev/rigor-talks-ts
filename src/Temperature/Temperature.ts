@@ -10,11 +10,11 @@ export class Temperature {
   }
 
   isSuperHot (): boolean {
-    // TODO delete infrastructure detail, mock this in test with TestClass
     const threshold = this.getThreshold();
     return this.getMeasure() > threshold;
   }
 
+  // TODO delete infrastructure detail, mock this in test with TestClass
   protected getThreshold () {
     return FalseLinkToInfrastructure.getConnection().fetch();
   }

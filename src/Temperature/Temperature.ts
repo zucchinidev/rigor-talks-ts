@@ -19,4 +19,8 @@ export class Temperature {
       throw new TemperatureNegativeException('Measure should be positive');
     }
   }
+
+  static take(measure: number): Temperature {
+    return new Temperature(measure);
+  }
 }

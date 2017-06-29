@@ -16,4 +16,10 @@ describe('Temperature class', () => {
   it('should return an TemperatureNegativeException', () => {
     expect(() => new Temperature(-1)).to.throw(TemperatureNegativeException, 'Measure should be positive');
   });
+
+  it('should create a valid temperature with named constructor', () => {
+    const measure = 18;
+    const result: Temperature = Temperature.take(measure);
+    result.getMeasure().should.be.equals(measure);
+  });
 });

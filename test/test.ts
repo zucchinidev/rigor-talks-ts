@@ -45,6 +45,8 @@ describe('Temperature class', () => {
     const measure = 1;
     const temOne: Temperature = TemperatureTestClass.take(measure);
     const temTwo: Temperature = TemperatureTestClass.take(measure);
-    temOne.add(temTwo).getMeasure().should.be.equals(2);
+    const newMeasure = temOne.add(temTwo);
+    newMeasure.getMeasure().should.be.equals(2);
+    newMeasure.should.not.be.eql(temOne);
   });
 });

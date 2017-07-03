@@ -1,6 +1,6 @@
 import * as express from 'express'
-import {InMemoryReviewRepository} from '../../Review/Application/Infraestructure/InMemoryReviewRepository'
-import {Review, ReviewStates} from '../../Review/Application/Domain/Review'
+import {InMemoryReviewRepository} from '../../Review/Infraestructure/InMemoryReviewRepository'
+import {Review, ReviewStates} from '../../Review/Domain/Review'
 
 class UpdateReviewResponse {
   constructor (private message: string = '', private code: number = 200) {}

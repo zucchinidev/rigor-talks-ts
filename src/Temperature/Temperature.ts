@@ -20,6 +20,10 @@ export class Temperature {
     return this.getMeasure() <= threshold;
   }
 
+  add(temTwo: Temperature): Temperature {
+    return Temperature.take(this.getMeasure() + temTwo.getMeasure());
+  }
+
   // TODO delete infrastructure detail, mock this in test with TestClass
   protected getThreshold () {
     return FalseLinkToInfrastructure.getConnection().fetch();

@@ -40,4 +40,11 @@ describe('Temperature class', () => {
     result.isSuperCold(coldThresholdSource).should.be.equals(true);
     restore(coldThresholdSource.getThreshold);
   });
+
+  it('should sum two measures', () => {
+    const measure = 1;
+    const temOne: Temperature = TemperatureTestClass.take(measure);
+    const temTwo: Temperature = TemperatureTestClass.take(measure);
+    temOne.add(temTwo).getMeasure().should.be.equals(2);
+  });
 });

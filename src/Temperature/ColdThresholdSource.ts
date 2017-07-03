@@ -1,9 +1,9 @@
 interface Threshold {
-  getThreshold (): number;
+  getThreshold (): number
 }
 
 export class ColdThresholdSource implements Threshold {
   getThreshold (): number {
-    return -10;
+    return -10
   }
 }

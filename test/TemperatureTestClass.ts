@@ -1,8 +1,8 @@
-import { Temperature } from '../src/Temperature/Temperature';
+import { Temperature } from '../src/Temperature/Temperature'
 
 export class TemperatureTestClass extends Temperature {
 
   protected getThreshold () {
-    return 50;
+    return 50
   }
 }
